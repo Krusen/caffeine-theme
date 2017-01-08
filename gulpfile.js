@@ -1,5 +1,5 @@
 "use strict";
-var PORT, _s, addsrc, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, reload, sass, src, strip, uglify;
+var PORT, _s, addsrc, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, reload, sass, src, strip, uglify, zip, zipper;
 
 gulp = require("gulp");
 gutil = require("gulp-util");
@@ -10,6 +10,7 @@ uglify = require("gulp-uglify");
 cssmin = require("gulp-cssmin");
 addsrc = require("gulp-add-src");
 changed = require("gulp-changed");
+zipper = require("gulp-zip");
 pkg = require("./package.json");
 _s = require("underscore.string");
 prefix = require("gulp-autoprefixer");
@@ -27,6 +28,21 @@ dist = {
     css: "assets/css",
     js: "assets/js"
 };
+
+zip = {
+    name: dist.name + ".zip",
+    dest: "build",
+    globs: [
+        // Include
+        "*",
+        ".*",
+        "assets/**/**",
+        "partials/**/**",
+
+        // Exclude
+        "!assets/vendor/**"
+    ]
+}
 
 src = {
     sass: {
@@ -106,6 +122,12 @@ gulp.task("js", function() {
     .pipe(gulp.dest(dist.js));
 });
 
+gulp.task("zip", function() {
+    gulp.src(zip.globs, { base: ".", nodir: true })
+    .pipe(zipper(zip.name))
+    .pipe(gulp.dest(zip.dest));
+});
+
 gulp.task("server", function() {
     browserSync.init(null, {
         proxy: "http://127.0.0.1:" + PORT.GHOST,
@@ -115,7 +137,7 @@ gulp.task("server", function() {
     });
 });
 
-gulp.task("build", ["css", "js"]);
+gulp.task("build", ["css", "js", "zip"]);
 
 gulp.task("default", function() {
     gulp.start(["build", "server"]);

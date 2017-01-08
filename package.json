@@ -42,6 +42,7 @@
     "gulp-strip-css-comments": "*",
     "gulp-uglify": "*",
     "gulp-util": "*",
+    "gulp-zip": "*",
     "underscore.string": "*"
   },
   "engines": {
