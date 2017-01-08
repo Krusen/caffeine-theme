@@ -111,7 +111,8 @@ p {
         @include inline-code-style;
     }
 }
-.fonts-loaded p{
+
+.fonts-loaded p {
     font-size: 100%;
 }
 
@@ -180,11 +181,6 @@ pre {
         color: $gray-dark;
         white-space: pre-wrap;
     }
-}
-
-code:hover,
-pre:hover {
-    color: $gray-darkest;
 }
 
 iframe {
