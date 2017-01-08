@@ -72,7 +72,8 @@
             color: $slate-white;
             font-size: 18px;
         }
-        img {
+
+        img.avatar {
             width: 112px;
             border: 2px solid $primary-color;
             @include shadow(2);
