@@ -46,19 +46,17 @@ src = {
         ],
         vendor: [
             "assets/js/src/libs/subbscribe.js",
+            "assets/js/src/libs/prism.min.js",
             "assets/vendor/ghostHunter/jquery.ghostHunter.min.js",
             "assets/vendor/fitvids/jquery.fitvids.js",
             "assets/vendor/reading-time/build/readingTime.min.js",
-            "assets/vendor/prism/prism.js",
             "assets/vendor/toastr/toastr.min.js",
             "assets/vendor/store-js/store.min.js"
         ]
     },
     css: {
-        main: "assets/css/" + dist.name + ".css",
-        vendor: [
-            "assets/vendor/prism/themes/prism-okaidia.css"
-        ]
+        main: "assets/css/prism.css",
+        vendor: [ ]
     },
     fonts: {
         files: [
@@ -76,19 +74,36 @@ gulp.task("fonts", function() {
 });
 
 gulp.task("css", ["fonts"], function() {
-    gulp.src(src.css.vendor).pipe(changed(dist.css)).pipe(addsrc(src.sass.main)).pipe(sass().on("error", gutil.log)).pipe(concat("" + dist.name + ".css")).pipe(prefix()).pipe(strip({
+    gulp.src(src.css.vendor)
+    .pipe(addsrc(src.css.main))
+    // .pipe(changed(dist.css))
+    .pipe(addsrc(src.sass.main))
+    .pipe(sass().on("error", gutil.log))
+    .pipe(concat("" + dist.name + ".css"))
+    .pipe(prefix())
+    .pipe(strip({
         all: true
-    })).pipe(cssmin()).pipe(header(banner, {
+    }))
+    .pipe(cssmin())
+    .pipe(header(banner, {
         pkg: pkg
-    })).pipe(gulp.dest(dist.css));
+    }))
+    .pipe(gulp.dest(dist.css));
 });
 
 gulp.task("js", function() {
-    gulp.src(src.js.fonts).pipe(addsrc(src.js.main)).pipe(changed(dist.js)).pipe(addsrc(src.js.vendor)).pipe(concat("" + dist.name + ".js")).pipe(uglify({
+    gulp.src(src.js.fonts)
+    .pipe(addsrc(src.js.main))
+    .pipe(changed(dist.js))
+    .pipe(addsrc(src.js.vendor))
+    .pipe(concat("" + dist.name + ".js"))
+    .pipe(uglify({
         mangle: false
-    })).pipe(header(banner, {
+    }))
+    .pipe(header(banner, {
         pkg: pkg
-    })).pipe(gulp.dest(dist.js));
+    }))
+    .pipe(gulp.dest(dist.js));
 });
 
 gulp.task("server", function() {
