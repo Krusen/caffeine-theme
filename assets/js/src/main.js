@@ -19,12 +19,16 @@ $(function() {
 
     CaffeineTheme.readTime();
 
+    if (window.site_title) {
+        $(".site-title").text(window.site_title);
+    }
+
     if (window.profile_title) {
         $(".profile-title").text(window.profile_title);
     }
 
     if (window.profile_resume) {
-        $("#profile-resume").text(window.profile_resume);
+        $(".profile-resume").text(window.profile_resume);
     }
 
     // Dynamically generate tags in tags overlay
