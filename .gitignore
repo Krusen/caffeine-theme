@@ -39,3 +39,4 @@ assets/scss/bourbon
 
 # Build output
 build/
+package-lock\.json
