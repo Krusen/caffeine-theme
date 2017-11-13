@@ -137,6 +137,12 @@
                 width: 100%;
             }
         }
+
+        pre {
+            width: calc(100% + 20px);
+            margin-left: -40px;
+            margin-right: -40px;
+        }
     }
 
     .nav-header {
