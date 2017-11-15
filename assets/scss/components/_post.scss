@@ -120,12 +120,11 @@
         }
     }
 
-    pre {
-        width: calc(100% + 60px);
-        margin-left: -60px;
-        margin-right: -60px;
-        padding-left: 30px;
-        padding-right: 30px;
+    pre,
+    pre[class*=language-] {
+        width: 100%;
+        margin: 0px -60px 20px;
+        padding: 1em 60px;
         border-width: 0px;
         border-radius: 0px;
         /* box-shadow: #505050 0px 2px 2px 0px; */
