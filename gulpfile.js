@@ -71,7 +71,10 @@ src = {
         ]
     },
     css: {
-        main: "assets/css/prism.css",
+        main: [
+            "assets/css/prism.css",
+            "assets/css/prism-atom-dark.css"
+        ],
         vendor: [ ]
     },
     fonts: {
