@@ -138,6 +138,18 @@
             }
         }
 
+        .kg-image-card {
+            &.kg-width-wide {
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+
+            &.kg-width-full {
+                margin-left: -40px;
+                margin-right: -40px;
+            }
+        }
+
         pre,
         pre[class*=language-] {
             margin: 0px -40px 20px;
@@ -275,6 +287,18 @@
     }
 
     .post-content {
+        .kg-image-card {
+            &.kg-width-wide {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+
+            &.kg-width-full {
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+        }
+
         pre,
         pre[class*=language-] {
             margin: 0px -40px 20px;
