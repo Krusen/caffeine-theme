@@ -2,7 +2,7 @@
   "name": "caffeine-theme",
   "description": "Material Design Inspired theme for Ghost",
   "homepage": "https://github.com/kelyvin/caffeine-theme",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "author": {
     "name": "Kelyvin",
     "email": "kelyvin@caffeinecoding.com",
@@ -32,7 +32,8 @@
     "caffeine",
     "material",
     "design",
-    "ghost.org"
+    "ghost.org",
+    "ghost-theme"
   ],
   "devDependencies": {
     "browser-sync": "2.18.12",
@@ -53,7 +54,7 @@
     "underscore.string": "3.3.4"
   },
   "engines": {
-    "node": "^4.2.0 || ^6.10.0"
+    "node": "^8.9.4"
   },
   "license": "MIT"
 }

@@ -183,6 +183,15 @@ pre {
     }
 }
 
+// Override youtube style injection
+.fluid-width-video-wrapper {
+    padding-top: 0 !important;
+
+    iframe {
+        position: relative !important;
+    }
+}
+
 iframe {
     width: 100%;
     min-height: 500px;
@@ -304,4 +313,13 @@ hr {
 
 .hide {
     display: none;
+}
+
+.kg-width-full,
+.kg-width-wide,
+.kg-gallery-container,
+.kg-gallery-image,
+.kg-gallery-row {
+    // required by gcsan to properly validate the theme
+    width: inherit;
 }
