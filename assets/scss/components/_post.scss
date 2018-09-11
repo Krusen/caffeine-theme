@@ -142,6 +142,17 @@
         }
     }
 
+    // Ghost 1.x image support
+    p {
+        img {
+            max-width: 100%;
+            margin: 24px auto;
+            text-align: center;
+            border-radius: $border-radius;
+            display: block;
+        }
+    }
+
     pre,
     pre[class*=language-] {
         width: 100%;
