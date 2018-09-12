@@ -22,7 +22,7 @@
     "minimalism"
   ],
   "dependencies": {
-    "ghostHunter": "git://github.com/i11ume/ghostHunter.git#2e721620868d127e9e688145fabcf5f86249d11b",
+    "ghostHunter": "git://github.com/i11ume/ghostHunter.git#7a058da96103eafcfc6cce0c3060872862d0905d",
     "reading-time": "1.0.0",
     "fitvids": "1.1.0",
     "font-awesome": "fontawesome#4.7.0",

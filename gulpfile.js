@@ -1,5 +1,5 @@
 "use strict";
-var PORT, _s, addsrc, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, reload, sass, src, strip, uglify, zip, zipper;
+var PORT, _s, addsrc, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, reload, rename, sass, src, strip, uglify, zip, zipper;
 
 gulp = require("gulp");
 gutil = require("gulp-util");
@@ -10,6 +10,7 @@ uglify = require("gulp-uglify");
 cssmin = require("gulp-cssmin");
 addsrc = require("gulp-add-src");
 changed = require("gulp-changed");
+rename = require("gulp-rename");
 zipper = require("gulp-zip");
 pkg = require("./package.json");
 _s = require("underscore.string");
@@ -63,12 +64,13 @@ src = {
         vendor: [
             "assets/js/src/libs/subbscribe.js",
             "assets/js/src/libs/prism.min.js",
-            "assets/vendor/ghostHunter/jquery.ghostHunter.min.js",
+            "assets/vendor/ghostHunter/dist/jquery.ghosthunter.min.js",
             "assets/vendor/fitvids/jquery.fitvids.js",
             "assets/vendor/reading-time/build/readingTime.min.js",
             "assets/vendor/toastr/toastr.min.js",
             "assets/vendor/store-js/store.min.js"
-        ]
+        ],
+        ghostHunter: "assets/vendor/ghostHunter/dist/jquery.ghosthunter.js"
     },
     css: {
         main: [
@@ -111,6 +113,12 @@ gulp.task("css", ["fonts"], function() {
 });
 
 gulp.task("js", function() {
+    // Uglify ghostHunter alone to avoid issues with "use strict"
+    gulp.src(src.js.ghostHunter)
+    .pipe(uglify({ mangle: false }))
+    .pipe(rename({ extname: ".min.js" }))
+    .pipe(gulp.dest(file => file.base))
+
     gulp.src(src.js.fonts)
     .pipe(addsrc(src.js.main))
     .pipe(changed(dist.js))
