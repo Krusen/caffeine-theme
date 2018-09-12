@@ -64,13 +64,13 @@ src = {
         vendor: [
             "assets/js/src/libs/subbscribe.js",
             "assets/js/src/libs/prism.min.js",
-            "assets/vendor/ghostHunter/dist/jquery.ghosthunter.min.js",
+            "assets/js/src/libs/jquery.ghosthunter.min.js",
             "assets/vendor/fitvids/jquery.fitvids.js",
             "assets/vendor/reading-time/build/readingTime.min.js",
             "assets/vendor/toastr/toastr.min.js",
             "assets/vendor/store-js/store.min.js"
         ],
-        ghostHunter: "assets/vendor/ghostHunter/dist/jquery.ghosthunter.js"
+        ghostHunter: "assets/js/src/libs/jquery.ghosthunter.js"
     },
     css: {
         main: [
