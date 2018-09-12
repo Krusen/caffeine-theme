@@ -2979,7 +2979,7 @@ lunr.QueryParser.parseBoost = function (parser) {
       // Browser globals (root is window)
       root.lunr = factory()
     }
-  }(this, function () {
+  }(typeof self !== 'undefined' ? self : this, function () {
     /**
      * Just return a value to define the module export.
      * This example returns an object, but the module
@@ -3001,7 +3001,7 @@ lunr.QueryParser.parseBoost = function (parser) {
     } else {
         root.Levenshtein = factory(root);
     }
-}(this, function(root){
+}(typeof self !== 'undefined' ? self : this, function(root){
 
     function forEach( array, fn ) { var i, length
         i = -1
@@ -3312,7 +3312,7 @@ lunr.QueryParser.parseBoost = function (parser) {
     init      : function( target , opts ){
       var that = this;
       Object.assign(this, opts);
-      console.log("ghostHunter: init");
+      // console.log("ghostHunter: init");
       if ( opts.onPageLoad ) {
         function miam () {
           that.loadAPI();
