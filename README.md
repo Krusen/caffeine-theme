@@ -4,7 +4,7 @@
 
 ## Introduction
 
-**Caffeine Theme** is a Material Design inspired Ghost theme. It originally began as a fork of [Uno-Zen](https://github.com/Kikobeats/uno-zen), but has since been drastically changed. Huge thanks to the original creator for the original theme layout and inspiration.
+**Caffeine Theme** is a Material Design inspired theme for the [Ghost](https://ghost.org?lmref=744)publishing platform. It originally began as a fork of [Uno-Zen](https://github.com/Kikobeats/uno-zen), but has since been drastically changed. Huge thanks to the original creator for the original theme layout and inspiration.
 
 **The theme is super easy to configure,** with almost no code change necessary! Simply follow the customization options [below](#customizations).
 
@@ -296,7 +296,34 @@ This theme includes a special browser compatibility page for users who use IE9 a
 Check out the official [documentation](http://themes.ghost.org/docs/page-context) on Ghost.org.
 
 ### Social Networks
-This one isn't as easily to customize through the Ghost admin. So you'll have to get your hands a litle dirty. You can edit the file `partials/social.hbs` with all the social networks you want to show, following the same HTML markup pattern that you see. You can find the right social icon for you by searching through [Font Awesome's icon list](http://fontawesome.io/icons/).
+To manage your social networks, you'll need to provide a custom config option. 
+
+For Facebook and Twitter links, go to Ghost Admin panel → General → `Social accounts`.
+For LinkedIn and Github links, go to Ghost Admin panel → `Code Injection` → `Blog Header` and add:
+
+```html
+<script>
+    var socialConfig = {
+        facebook: {
+            title: "Caffeine Coding on Facebook"
+        },
+        twitter: {
+            title: "@KelyvinN on Twitter"
+        },
+        linkedIn: {
+            link: "https://linkedin.com/in/kelyvin",
+            title: "Kelyvin on LinkedIn"
+        },
+        github: {
+            link: "https://github.com/kelyvin",
+            title: "Kelyvin on Github"
+        }
+    };
+</script>
+```
+
+If you don't provide a config for any of these, they will automatically be omitted. If you want other social links besides these four, you'll have to get your hands a little dirty. You can edit the file `partials/social.hbs` with all the social networks you want to show, following the same HTML markup pattern that you see. You can find the right social icon for you by searching through [Font Awesome's icon list](http://fontawesome.io/icons/).
+
 
 ### AMP Support
 As of Ghost v0.10.0, Ghost supports and will automatically render AMP (accelerated mobile pages) versions of your posts. You can read more about the [AMP project here](https://www.ampproject.org/).
@@ -340,26 +367,25 @@ The code for the theme is divided into 3 main sections: static files (as HTML an
 │   │   └── caffeine-theme.js //production js
 │   └── scss //all the sass stylsheets that will be bundled together
 │   │   ├── components //stylesheets for specific components
-│   │   │   ├── _aside.scss
-│   │   │   ├── _loading.scss
-│   │   │   ├── _media-queries.scss
-│   │   │   ├── _page-error.scss
-│   │   │   ├── _pagination.scss
-│   │   │   ├── _post.scss
-│   │   │   └── _search.scss
-│   │   ├── modules //stylesheets for generic modules
-│   │   │   ├── _buttons.scss
-│   │   │   ├── _effects.scss
-│   │   │   ├── _fonts.scss
-│   │   │   ├── _forms.scss
-│   │   │   ├── _global.scss
-│   │   │   ├── _grid.scss
-│   │   │   ├── _mixins.scss
-│   │   │   ├── _reset.scss
-│   │   │   └── _variables.scss
-│   │   └── caffeine-theme.scss //parent sass file
-|   └── vendor //bower dependencies
-├── bower.json
+│   │   ├── _aside.scss
+│   │   ├── _loading.scss
+│   │   ├── _media-queries.scss
+│   │   ├── _page-error.scss
+│   │   ├── _pagination.scss
+│   │   ├── _post.scss
+│   │   └── _search.scss
+│   ├── modules //stylesheets for generic modules
+│   │   ├── _buttons.scss
+│   │   ├── _effects.scss
+│   │   ├── _fonts.scss
+│   │   ├── _forms.scss
+│   │   ├── _global.scss
+│   │   ├── _grid.scss
+│   │   ├── _mixins.scss
+│   │   ├── _reset.scss
+│   │   └── _variables.scss
+│   └── caffeine-theme.scss //parent sass file
+|   
 ├── default.hbs
 ├── error.hbs
 ├── gulpfile.js
@@ -392,7 +418,7 @@ To bundle, minify, and compile the stylesheets and js files, we use [Gulp](http:
 
 For local development you need to have to install some core node modules and have a locally running Ghost server.
 
-Assuming you already have [Node and npm](https://nodejs.org/en/) installed, follow the instructions to install [Bower](http://bower.io/) and [Gulp](http://gulpjs.com/).
+Assuming you already have [Node and npm](https://nodejs.org/en/) installed, follow the instructions to install [Gulp](http://gulpjs.com/).
 
 Run your Ghost server separately like this:
 
@@ -411,7 +437,7 @@ Note that my local Ghost is running in the port `2368`.
 With your local Ghost running, open another terminal and enter in the folder `content/themes` of your local Ghost and clone the theme repository and install the dependencies for local development:
 
 ```bash
-$ git clone https://github.com/kelyvin/caffeine-theme && cd caffeine-theme && npm install && bower install
+$ git clone https://github.com/kelyvin/caffeine-theme && cd caffeine-theme && npm install
 ```
 
 Then run `npm start` or the `gulp` command in the theme terminal. This should set you up for a development scenario, and looks like this:
@@ -422,7 +448,7 @@ With the `gulp` command you are automatically launching the task to compile the 
 
 You need to use the same port as your Ghost server for proxying. If your Ghost server is in a different port than `2368` you need to modify `gulpfile.js` and put the correct port.
 
-**Note: I recommend using the `npm start` command since it will automatically run `npm install` and `bower install` for simplicity's sake.**
+**Note: I recommend using the `npm start` command since it will automatically run `npm install` for simplicity's sake.**
 
 ### Colors
 

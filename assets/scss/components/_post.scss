@@ -142,7 +142,7 @@
         }
     }
 
-    // Ghost 1.x image support
+    // Markdown image support
     p {
         img {
             max-width: 100%;
@@ -151,6 +151,10 @@
             border-radius: $border-radius;
             display: block;
         }
+    }
+
+    pre {
+        width: 95%;
     }
 
     pre,

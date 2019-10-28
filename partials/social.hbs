@@ -6,20 +6,24 @@ and then add your link to the <a>.
 <ul class="social expanded">
 
     <!-- Facebook -->
-    <li class="social item hvr-grow-rotate">
-        <a rel="me" target="_blank" href="https://www.facebook.com/krusenen" title="My Facebook profile">
-            <i class='fa fa-facebook-official'></i>
-            <span class="label">Facebook</span>
-        </a>
-    </li>
-
+    {{#if @site.facebook}}
+        <li class="social item hvr-grow-rotate">
+            <a rel="me" target="_blank" href="https://www.facebook.com/krusenen" title="My Facebook profile">
+                <i class='fa fa-facebook-official'></i>
+                <span class="label">Facebook</span>
+            </a>
+        </li>
+    {{/if}}
+    
     <!-- Twitter -->
-    <li class="social item hvr-grow-rotate">
-        <a rel="me" target="_blank" href="https://twitter.com/sorenkrusen" title="@sorenkrusen on Twitter">
-            <i class='fa fa-twitter'></i>
-            <span class="label">Twitter</span>
-        </a>
-    </li>
+    {{#if @site.twitter}}
+        <li class="social item hvr-grow-rotate">
+            <a rel="me" target="_blank" href="https://twitter.com/sorenkrusen" title="@sorenkrusen on Twitter">
+                <i class='fa fa-twitter'></i>
+                <span class="label">Twitter</span>
+            </a>
+        </li>
+    {{/if}}
 
     <!-- Linkedin -->
     <li class="social item hvr-grow-rotate">

@@ -26,6 +26,7 @@ $(function() {
         displaySearchInfo: true,
         // Show search info if zero results
         zeroResultsInfo: false,
+        result_template: "<a id='gh-{{ref}}' class=\"gh-search-item\" href='{{link}}'>\n  <h2>{{title}}</h2>\n  <h4>{{pubDate}}</h4>\n</a>",
         onComplete: function(query) {
             if (query.length > 0) {
                 return hideTags();
