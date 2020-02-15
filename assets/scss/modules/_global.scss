@@ -112,7 +112,8 @@ p {
     }
 }
 
-.fonts-loaded p {
+.fonts-loaded p,
+.fonts-loaded blockquote {
     font-size: 100%;
 }
 
@@ -125,14 +126,21 @@ em {
 }
 
 blockquote {
+    margin: 20px 0px;
+    padding: 20px 20px;
+    font-family: $quote-font;
+    font-size: 18px;
+    line-height: 22px;
+    -webkit-font-smoothing: antialiased;
+    font-style: italic;
+    word-wrap: break-word;
+    border-left: 4px solid #55cbb9;
+
+    background-color: #f9f9f9;
+
     > p {
-        margin: 40px 48px;
-        font-family: $quote-font;
-        font-size: 18px;
-        -webkit-font-smoothing: antialiased;
-        font-style: italic;
-        text-align: center;
-        word-wrap: break-word;
+        margin: 0;
+        line-height: 22px;
     }
 }
 
