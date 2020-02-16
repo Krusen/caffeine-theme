@@ -1,6 +1,8 @@
 "use strict";
 var PORT, _s, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, sass, src, strip, uglify, zip, zipper;
 
+var ENV, _s, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, sass, src, strip, uglify, zip, zipper;
+
 gulp = require("gulp");
 gutil = require("gulp-util");
 sass = require("gulp-sass");
@@ -16,9 +18,9 @@ prefix = require("gulp-autoprefixer");
 strip = require("gulp-strip-css-comments");
 browserSync = require("browser-sync");
 
-PORT = {
-    GHOST: 2368,
-    BROWSERSYNC: 3000
+ENV = {
+    GHOST: "https://blog.krusen.dk",
+    BROWSERSYNC_PORT: 4000
 };
 
 dist = {
@@ -125,10 +127,14 @@ function pack() {
 
 function server() {
     return browserSync.init(null, {
-        proxy: "http://127.0.0.1:" + PORT.GHOST,
+        proxy: ENV.GHOST,
         files: ["assets/**/*.*"],
+        serveStatic: [{
+            route: '/assets',
+            dir: 'assets'
+        }],
         reloadDelay: 300,
-        port: PORT.BROWSERSYNC
+        port: ENV.BROWSERSYNC_PORT
     });
 }
 
