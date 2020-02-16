@@ -1,5 +1,4 @@
-"use strict";
-var PORT, _s, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, sass, src, strip, uglify, zip, zipper;
+const { series, parallel } = require("gulp");
 
 var ENV, _s, banner, browserSync, changed, concat, cssmin, dist, gulp, gutil, header, pkg, prefix, sass, src, strip, uglify, zip, zipper;
 
@@ -145,10 +144,11 @@ function watch() {
     return gulp.watch(src.js.node_modules).on("all", js);
 }
 
-gulp.task("fonts", fonts);
-gulp.task("css", gulp.series("fonts", css));
-gulp.task("js", js);
-gulp.task("server", server);
-gulp.task("pack", pack);
-gulp.task("build", gulp.series("css", "js", "pack"));
-gulp.task("default", gulp.series("build", "server", watch));
+exports.build = series(
+    parallel(fonts, css, js),
+    pack
+);
+exports.default = series(
+    parallel(fonts, css, js),
+    parallel(server, watch)
+);
