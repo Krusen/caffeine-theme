@@ -151,6 +151,11 @@ blockquote {
         margin: 0;
         line-height: 22px;
     }
+
+    > code {
+        @include inline-code-style;
+        font-style: normal;
+    }
 }
 
 // ------------------------------
