@@ -73,34 +73,40 @@ h6 {
 
 h1 {
     margin: $margin-h1 0;
+    margin-bottom: $margin-h1-bottom;
     font-size: $font-h1;
     line-height: 48px;
 }
 
 h2 {
     margin: $margin-h2 0;
+    margin-bottom: $margin-h2-bottom;
     font-size: $font-h2;
     font-weight: 500;
 }
 
 h3 {
     margin: $margin-h3 0;
+    margin-bottom: $margin-h3-bottom;
     font-size: $font-h3;
     font-weight: 500;
 }
 
 h4 {
     margin: $margin-h4 0;
+    margin-bottom: $margin-h4-bottom;
     font-size: $font-h4;
 }
 
 h5 {
     margin: $margin-h5 0;
+    margin-bottom: $margin-h5-bottom;
     font-size: $font-h5;
 }
 
 h6 {
     margin: $margin-h6 0;
+    margin-bottom: $margin-h6-bottom;
     font-size: $font-h6;
 }
 
