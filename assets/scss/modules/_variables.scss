@@ -33,7 +33,7 @@ $divider-color         : rgba(255, 255, 255, .14);
 
 $unit                  : 1rem;
 
-$sans-font             : 'Raleway', sans-serif;
+$sans-font             : 'Open Sans', sans-serif;
 $sans-font-fallback    : Geneva, sans-serif;
 $serif-font            : 'Roboto Slab', Georgia, serif;
 $serif-font-fallback   : Georgia, serif;
@@ -41,8 +41,8 @@ $code-font             : Consolas, Menlo, Monaco, Lucida Console, Liberation Mon
 $quote-font            : "freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
 
 $font-weight-thin      : 100;
-$font-weight-normal    : 300;
-$font-weight-bold      : 700;
+$font-weight-normal    : 400;
+$font-weight-bold      : 600;
 
 $margin-title          : $unit * 2.5;
 $margin-h1             : $margin-title * 1.1;

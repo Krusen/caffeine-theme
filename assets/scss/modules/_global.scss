@@ -17,6 +17,7 @@ body {
 
 body {
     font-family: $sans-font-fallback;
+    font-weight: $font-weight-normal;
     color: $gray-darkest;
     background: $gray-lighter;
 }
@@ -120,7 +121,7 @@ p {
 }
 
 strong {
-    font-weight: bold;
+    font-weight: $font-weight-bold;
 }
 
 em {
