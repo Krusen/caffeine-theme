@@ -3,7 +3,7 @@
 (function (w) {
     
     var link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto+Slab&display=swap&subset=latin-ext";
+    link.href = "https://fonts.googleapis.com/css?family=Open+Sans:400,600|Merriweather&display=swap&subset=latin-ext";
     link.rel = 'stylesheet';
     document.head.appendChild(link);
 
@@ -15,7 +15,7 @@
         weight: 600
     });
 
-    var font3 = new w.FontFaceObserver("Roboto Slab", {
+    var font3 = new w.FontFaceObserver("Merryweather", {
         weight: 400
     });
 
