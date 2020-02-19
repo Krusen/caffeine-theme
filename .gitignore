@@ -38,3 +38,7 @@ assets/scss/bourbon
 # Build output
 build/
 package-lock\.json
+
+assets/js/caffeine-theme.js
+
+assets/css/caffeine-theme.css
